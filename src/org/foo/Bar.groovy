@@ -1,0 +1,43 @@
+class Bar {
+    private double length
+    private double width
+    private double height
+
+    public Bar(double x, double y, double z) { 
+        setLength(x)
+        setWidth(y)
+        setHeight(z)
+    }
+    
+    public getHeight() {
+        return height
+    }
+    
+    public setHeight(double z) {
+        height = z
+    }
+    
+    public getWidth() {
+        return width
+    }
+
+    public setWidth(double y) {
+        width = y
+    }
+
+    public getLength() {
+        return length
+    }
+
+    public setLength(double x) {
+        length = x
+    }
+
+    public volume(){
+        return length * width * height
+    }
+
+    public surfaceArea(){
+        return 2 * (length * width + height * length + height * width)
+    }
+}
