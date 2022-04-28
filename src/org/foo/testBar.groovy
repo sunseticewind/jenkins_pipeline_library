@@ -6,9 +6,9 @@ class testBar {
     private double height
 
     public testBar(double x, double y, double z) { 
-        setLength(x)
-        setWidth(y)
-        setHeight(z)
+        length = x
+        width = y
+        height = z
     }
     
     public getHeight() {
