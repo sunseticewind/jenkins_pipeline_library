@@ -33,11 +33,11 @@ class Bar {
         length = x
     }
 
-    public volume(){
+    public double volume(){
         return length * width * height
     }
 
-    public surfaceArea(){
+    public double surfaceArea(){
         return 2 * (length * width + height * length + height * width)
     }
 }
