@@ -1,3 +1,5 @@
+package org.foo
+
 class testBar {
     private double length
     private double width
