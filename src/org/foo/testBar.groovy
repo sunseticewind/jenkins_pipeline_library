@@ -1,9 +1,9 @@
-class Bar {
+class testBar {
     private double length
     private double width
     private double height
 
-    public Bar(double x, double y, double z) { 
+    public testBar(double x, double y, double z) { 
         setLength(x)
         setWidth(y)
         setHeight(z)
