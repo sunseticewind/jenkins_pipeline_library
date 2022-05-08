@@ -1,9 +1,9 @@
 package org.foo
 
 class testBar implements Serializable{
-    private double length
-    private double width
-    private double height
+    private final double length
+    private final double width
+    private final double height
 
     public testBar(double x, double y, double z) { 
         length = x
