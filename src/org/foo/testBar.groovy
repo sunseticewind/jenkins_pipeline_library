@@ -1,6 +1,6 @@
 package org.foo
 
-class testBar {
+class testBar implements Serializable{
     private double length
     private double width
     private double height
