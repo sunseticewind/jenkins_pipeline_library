@@ -1,5 +1,5 @@
-import groovy.json.JsonSlurper
+import groovy.json.JsonSlurperClassic
 
 def call(sourceFile){
-  new JsonSlurper().parseText(sourceFile)
+  new JsonSlurperClassic().parseText(sourceFile)
 }
