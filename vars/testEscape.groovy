@@ -21,10 +21,13 @@ def call(server_ip, exec_command) {
                     returnStatus: true
                 )
                 
-                rtnMsg = sh (
-                    script: "cat ${WORKSPACE}/${env.BUILD_NUMBER}.txt",
-                    returnStdout: true
-                ).trim()
+                // rtnMsg = sh (
+                //     script: "cat ${WORKSPACE}/${env.BUILD_NUMBER}.txt",
+                //     returnStdout: true
+                // ).trim()
+                rtnMsg = readFile "${env.WORKSPACE}/${env.BUILD_NUMBER}.txt"
+                rtnMsg = rtnMsg.trim()
+                println(rtnMsg)
                 
                 return [rtnStatus, rtnMsg]
             }
