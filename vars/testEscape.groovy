@@ -21,7 +21,7 @@ def call(server_ip, exec_command) {
                 )
                 
                 rtnMsg = sh (
-                    script: "cat ${env.BUILD_ID}.txt",
+                    script: "cat test.txt",
                     returnStdout: true
                 ).trim()
                 
