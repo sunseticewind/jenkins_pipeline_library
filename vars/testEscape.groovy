@@ -5,7 +5,8 @@ def call(server_ip, exec_command) {
             keyFileVariable: 'SSH_KEY',
             usernameVariable: 'SSH_USER')]) 
             {
-                def filePath = this.class.classLoader.getResourceLoader().loadGroovySource(this.class.name).toURI().toString()
+                // def filePath = this.class.classLoader.getResourceLoader().loadGroovySource(this.class.name).toURI().toString()
+                def filePath = this.getClass().getProtectionDomain().getCodeSource().getLocation().getPath()
                 def folderPathList = filePath.split("/")
                 def folderPath = ""
                 for(int i=0;i<folderPathList.size()-2;i++){
