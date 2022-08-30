@@ -13,7 +13,8 @@ def call(server_ip, exec_command) {
                     folderPath+=folderPathList[i]+"/"
                 }
                 sh "chmod +x ${folderPath}resources/org/foo/testEscape.sh"
-                def SSH_COMMAND = "${folderPath}resources/org/foo/testEscape.sh '${SSH_KEY}' ${SSH_USER} ${server_ip} \'\''${exec_command}\'\''"
+                writeFile file: "command.sh", text: exec_command, encoding: "UTF-8"
+                def SSH_COMMAND = "${folderPath}resources/org/foo/testEscape.sh '${SSH_KEY}' ${SSH_USER} ${server_ip} '${exec_command}'"
                 
                 rtnStatus = sh (
                     script: SSH_COMMAND,
