@@ -22,7 +22,7 @@ def call(server_ip, exec_command) {
                 )
                 
                 rtnMsg = sh (
-                    script: "cat test.txt",
+                    script: "cat ${WORKSPACE}/test.txt",
                     returnStdout: true
                 ).trim()
                 
