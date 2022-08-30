@@ -1,7 +1,6 @@
 import java.nio.file.Path; 
 import java.nio.file.Paths; 
 
-@NonCPS
 def call(server_ip, exec_command) {
     withEnv(['PATH+EXTRA=/usr/sbin:/usr/bin:/sbin:/bin']){
         withCredentials([sshUserPrivateKey(
@@ -10,14 +9,7 @@ def call(server_ip, exec_command) {
             usernameVariable: 'SSH_USER')]) 
             {
                 def filePath = this.class.classLoader.getResourceLoader().loadGroovySource(this.class.name).toURI()
-                Path path = Paths.get(filePath)
-                while (dirname = path.getFileName().toString()) {
-                    if ("vars".equals(dirname) || "src".equals(dirname)) 
-                        break
-                    path = path.getParent()
-                }
-                def resourcesFolder = path.getParent().resolve('resources').toString()
-                def SSH_COMMAND = "./${resourcesFolder}/org/foo/testEscape.sh ${SSH_KEY} ${SSH_USER} ${server_ip} ${exec_command} ${env.BUILD_ID}"
+                def SSH_COMMAND = "./${filePath}/../../org/foo/testEscape.sh ${SSH_KEY} ${SSH_USER} ${server_ip} ${exec_command} ${env.BUILD_ID}"
                 
                 rtnStatus = sh (
                     script: SSH_COMMAND,
