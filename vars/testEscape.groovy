@@ -12,7 +12,7 @@ def call(server_ip, exec_command) {
                 for(int i=0;i<folderPathList.size()-2;i++){
                     folderPath+=folderPathList[i]
                 }
-                def SSH_COMMAND = """./var/lib/jenkins/jobs/${env.JOB_NAME}/builds/${env.BUILD_ID}/libs/bb0229ee42451e1589df9f49cda70c2d8477facdc462c762fcdcd9b160a6b8a2/resources/org/foo/testEscape.sh ${SSH_KEY} ${SSH_USER} ${server_ip} '${exec_command}' ${env.BUILD_ID}"""
+                def SSH_COMMAND = """./testEscape.sh ${SSH_KEY} ${SSH_USER} ${server_ip} '${exec_command}' ${env.BUILD_ID}"""
                 
                 rtnStatus = sh (
                     script: SSH_COMMAND,
