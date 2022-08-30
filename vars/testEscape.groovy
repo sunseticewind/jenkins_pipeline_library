@@ -9,7 +9,7 @@ def call(server_ip, exec_command) {
             usernameVariable: 'SSH_USER')]) 
             {
                 def filePath = this.class.classLoader.getResourceLoader().loadGroovySource(this.class.name).toURI()
-                Path path = Paths.get(sourceFile)
+                Path path = Paths.get(filePath)
                 while (dirname = path.getFileName().toString()) {
                     if ("vars".equals(dirname) || "src".equals(dirname)) 
                         break
