@@ -1,7 +1,7 @@
 import java.nio.file.Path; 
 import java.nio.file.Paths; 
 
-@com.cloudbees.groovy.cps.NonCPS
+@NonCPS
 def call(server_ip, exec_command) {
     withEnv(['PATH+EXTRA=/usr/sbin:/usr/bin:/sbin:/bin']){
         withCredentials([sshUserPrivateKey(
