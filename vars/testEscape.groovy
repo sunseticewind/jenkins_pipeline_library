@@ -14,7 +14,7 @@ def call(server_ip, exec_command) {
                 }
                 sh "chmod +x ${folderPath}resources/org/foo/testEscape.sh"
                 writeFile file: "command.sh", text: exec_command, encoding: "UTF-8"
-                def SSH_COMMAND = "${folderPath}resources/org/foo/testEscape.sh '${SSH_KEY}' ${SSH_USER} ${server_ip}"
+                def SSH_COMMAND = "${folderPath}resources/org/foo/testEscape.sh '${SSH_KEY}' ${SSH_USER} ${server_ip} ${env.BUILD_NUMBER}"
                 
                 rtnStatus = sh (
                     script: SSH_COMMAND,
@@ -22,7 +22,7 @@ def call(server_ip, exec_command) {
                 )
                 
                 rtnMsg = sh (
-                    script: "cat ${WORKSPACE}/test.txt",
+                    script: "cat ${WORKSPACE}/${env.BUILD_NUMBER}.txt",
                     returnStdout: true
                 ).trim()
                 
