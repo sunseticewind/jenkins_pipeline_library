@@ -12,7 +12,7 @@ def call(server_ip, exec_command) {
                 for(int i=0;i<folderPathList.size()-2;i++){
                     folderPath+=folderPathList[i]+"/"
                 }
-                sh "cat ${folderPath}resources/org/foo/testEscape.sh"
+                sh "chmod +x ${folderPath}resources/org/foo/testEscape.sh"
                 def SSH_COMMAND = """${folderPath}resources/org/foo/testEscape.sh ${SSH_KEY} ${SSH_USER} ${server_ip} '${exec_command}' ${env.BUILD_ID}"""
                 
                 rtnStatus = sh (
