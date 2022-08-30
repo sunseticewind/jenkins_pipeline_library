@@ -1,6 +1,3 @@
-import java.nio.file.Path; 
-import java.nio.file.Paths; 
-
 def call(server_ip, exec_command) {
     withEnv(['PATH+EXTRA=/usr/sbin:/usr/bin:/sbin:/bin']){
         withCredentials([sshUserPrivateKey(
