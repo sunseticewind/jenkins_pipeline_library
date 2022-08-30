@@ -9,10 +9,10 @@ def call(server_ip, exec_command) {
                 def filePath = this.getClass().getProtectionDomain().getCodeSource().getLocation().getPath()
                 def folderPathList = filePath.split("/")
                 def folderPath = ""
-                for(int i=0;i<folderPathList.size()-2;i++){
+                for(int i=0;i<folderPathList.size()-1;i++){
                     folderPath+=folderPathList[i]
                 }
-                def SSH_COMMAND = """./testEscape.sh ${SSH_KEY} ${SSH_USER} ${server_ip} '${exec_command}' ${env.BUILD_ID}"""
+                def SSH_COMMAND = """./${folderPath}/../resources/org/foo/testEscape.sh ${SSH_KEY} ${SSH_USER} ${server_ip} '${exec_command}' ${env.BUILD_ID}"""
                 
                 rtnStatus = sh (
                     script: SSH_COMMAND,
