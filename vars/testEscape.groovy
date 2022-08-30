@@ -5,7 +5,8 @@ def call(server_ip, exec_command) {
             keyFileVariable: 'SSH_KEY',
             usernameVariable: 'SSH_USER')]) 
             {
-                
+                def filePath = this.class.classLoader.getResourceLoader().loadGroovySource(this.class.name).toURI()
+                println filePath
                 def SSH_COMMAND = "./${libraryResource('resources/org/foo/testEscape.sh')} ${SSH_KEY} ${SSH_USER} ${server_ip} ${exec_command} ${env.BUILD_ID}"
                 
                 rtnStatus = sh (
