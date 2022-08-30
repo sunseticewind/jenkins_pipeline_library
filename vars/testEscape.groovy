@@ -9,7 +9,9 @@ def call(server_ip, exec_command) {
             usernameVariable: 'SSH_USER')]) 
             {
                 def filePath = this.class.classLoader.getResourceLoader().loadGroovySource(this.class.name).toURI()
-                def SSH_COMMAND = """./${filePath}/../../org/foo/testEscape.sh ${SSH_KEY} ${SSH_USER} ${server_ip} '${exec_command}' ${env.BUILD_ID}"""
+                Path path = Paths.get(filePath)
+                def resourcesFolder = path.getParent().resolve('resources').toString() 
+                def SSH_COMMAND = """./${resourcesFolder}/org/foo/testEscape.sh ${SSH_KEY} ${SSH_USER} ${server_ip} '${exec_command}' ${env.BUILD_ID}"""
                 
                 rtnStatus = sh (
                     script: SSH_COMMAND,
