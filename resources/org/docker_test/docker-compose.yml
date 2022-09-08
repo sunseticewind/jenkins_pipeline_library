@@ -1,0 +1,6 @@
+version: '3'
+  
+services:
+    dotnet_3_compiler:
+        build:
+            context: ./docker
