@@ -11,7 +11,7 @@ def call(){
                 sh (cmd)
             }catch(Exception e){
                 is_failed=true
-                failed_list.add(json_obj["HOST"])
+                failed_list.add(json_obj["HOST"], port)
             }
         }
         
