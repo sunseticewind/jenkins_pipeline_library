@@ -2,8 +2,7 @@ import groovy.json.*
 
 def call(){
     json_str = libraryResource 'org/foo/checkServerList.json'
-    jsonSlurperClassic = new JsonSlurperClassic()
-    json_arr = jsonSlurperClassic.parseText(json_str)
+    json_arr = readJson(json_str)
     failed_list = []
     for(json_obj in json_arr){
         try{
