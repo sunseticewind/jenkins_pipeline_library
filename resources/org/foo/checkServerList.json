@@ -4,19 +4,7 @@
     "PORT":[8081,29419]
   },
   {
-    "HOST":"sf1-git.htc.com",
-    "PORT":[29419]
-  },
-  {
-    "HOST":"sf2-git.htc.com",
-    "PORT":[29419]
-  },
-  {
-    "HOST":"sf3-git.htc.com",
-    "PORT":[29419]
-  },
-  {
-    "HOST":"sf4-git.htc.com",
+    "HOST":"tpe.git.htc.com",
     "PORT":[29419]
   },
   {
