@@ -1,5 +1,5 @@
 def call() {
   properties([
-    buildDiscarder(logRotator(numToKeepStr: '5'))
+    buildDiscarder(logRotator(numToKeepStr: '100'))
   ])
 }
