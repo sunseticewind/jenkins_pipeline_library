@@ -14,7 +14,6 @@ def call(){
                 failed_list.add(json_obj["HOST"]+":"+port)
             }
         }
-        
     }
     if (failed_list.size()>0){
         sender = "SEG_JENKINS@htc.com"
