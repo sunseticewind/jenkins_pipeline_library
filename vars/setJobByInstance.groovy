@@ -1,5 +1,6 @@
-def call(description){
+def call(){
     item = Jenkins.instance.getItemByFullName(env.JOB_NAME) 
-    obj = readJSON(item)
-    print(obj)
+    item.setConcurrentBuild(true)
+    item.setDisabled(true)
+    item.save()
 }
