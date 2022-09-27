@@ -7,7 +7,12 @@ def call(isConcurrentBuild, isOverwriteBD){
         item.setBuildDiscarder(new LogRotator(-1,100,-1,-1));
     }
     item.save()
-    timeout(time: 30, unit: 'MINUTES'){
-        echo 'set default timeout duration'
+    try {
+        timeout(time: 30, unit: 'MINUTES'){
+            echo 'set default timeout duration'
+        }
+    } catch(err) {
+        echo 'test'
     }
+    
 }
