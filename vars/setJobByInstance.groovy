@@ -1,3 +1,5 @@
+import hudson.tasks.LogRotator
+
 def call(){
     def item = Jenkins.instance.getItemByFullName(env.JOB_NAME) 
     item.setConcurrentBuild(false)
